@@ -1,0 +1,131 @@
+body
+{
+	margin: 0;
+	padding:0;
+	font-family: sans-serif;
+	background-color: #ddd;
+}
+.box
+{
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	transform: translate(-50%,-35%);
+	width: 300px;
+	padding:30px;
+	background: rgba(0,0,0,.3);
+	box-sizing: border-box;
+	box-shadow:  0 15px 25px rgba(0,0,0,.5);
+	border-radius: 10px;
+}
+.box h2
+{
+	margin: 0 0 30px;
+	padding: 0;
+	color: #fff;
+	text-align: center;
+}
+.box  .inputbox
+{
+	position: relative;
+}
+.box .inputbox input
+{
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #fff;
+	outline: none;
+	background: transparent;
+	transition:  .5s ease-in;
+}
+.box .inputbox label
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	pointer-events: none;
+	transition: .5s;
+}
+.box .inputbox input:focus ~ label,
+.box .inputbox input:valid ~ label
+{
+	top: -18px;
+	left: 0;
+	color: #03a9f4;
+	font-size: 12px;
+}
+.box .inputbox input:focus ,
+.box .inputbox input:valid
+{
+	border: none;
+	border-bottom: 1px solid #03a9f4;
+}
+.box input[type="submit"]
+{
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #fff;
+	background: #03a9f4;
+	padding: 10px 20px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 14px;
+	margin-left: 70px;	
+}
+.lowerbox
+{
+	position: absolute;
+	top: 99%;
+	left: 50%;
+	transform: translate(-50%,-99%);
+	width: 200px;
+	padding:8px;
+	background: rgba(0,0,0,.3);
+	box-sizing: border-box;
+	box-shadow:  0 15px 25px rgba(0,0,0,.5);
+	border-radius: 10px;	
+}
+.lowerbox a
+{
+	position: relative;
+	left: 30px;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	font-size: 16px;	
+}
+.upperbox
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(0,0);
+	width: 100%;
+	padding:2px;
+	background: rgba(0,0,0,.3);
+	box-sizing: border-box;
+	box-shadow:  0 15px 25px rgba(0,0,0,.5);
+	
+}
+.upperbox h3
+{
+	position: relative;
+	
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	font-size: 20px;	
+}
+.box .inputbox input:focus ~ .box
+{
+	padding: 10px;
+}

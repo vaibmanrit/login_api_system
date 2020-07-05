@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Home</title>
+  <!-- MDB icon -->
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="home.css">
+
+  </style>
+</head>
+<body >
+
+  <div class="box" id="acc">
+    <h2>Account Details</h2>
+        <label>First Name :</label><label id="fname" style=" position: absolute; left: 150px; " ></label><br>
+        <label>Last Name :</label><label id="lname" style=" position: absolute; left: 150px; "></label><br>
+        <label>Phone :</label><label id="phone" style=" position: absolute; left: 150px; "></label><br>
+        <label>Sex :</label><label id="sex" style=" position: absolute; left: 150px; "></label><br>
+        <label>Email :</label><label id="email" style=" position: absolute; left: 150px; "></label><br>
+       <button type="button" class="btn btn-danger" onclick="logout()">Log Out</button>
+  </div>
+  
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type=”text/javascript” src=”jquery.js”></script>
+  <script type="text/javascript">
+            $(document).ready(function(){
+                    $.ajax({
+                        type:"GET",  //Request type
+                        url:"http://localhost/aayog/account.php",   
+                        cache:false,
+                        success:function(response) {
+                          console.log(response);
+                          var obj = JSON.parse(response);
+                          console.log(obj);
+                            var fname=obj.fname;
+                            var lname=obj.lname;
+                            var phone=obj.phone;
+                            var sex=obj.sex;
+                            var email=obj.email;
+                            document.getElementById("fname").innerHTML =fname;
+                            document.getElementById("lname").innerHTML =lname;
+                            document.getElementById("sex").innerHTML =sex;
+                            document.getElementById("phone").innerHTML =phone;
+                            document.getElementById("email").innerHTML =email;
+                          }
+                    });
+                })
+            function logout()
+            {
+              $.ajax({
+                        type:"GET",  //Request type
+                        url:"http://localhost/aayog/logout.php",   
+                        cache:false,
+                        success:function(response) {
+                           window.location = 'login.html';
+                          }
+                    });
+            }
+
+        </script>
+  
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript">
+  		new WOW().init();
+  </script>
+
+</body>
+</html>

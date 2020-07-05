@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Register</title>
+    <style type="text/css">
+    	input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+		  -webkit-appearance: none;
+		  margin: 0;
+		}
+
+		/* Firefox */
+		input[type=number] {
+		  -moz-appearance: textfield;
+		}
+    </style>
+</head>
+<body>
+	
+    <div class="box" >
+            <h2>Register</h2>
+            <form>
+                <div class="inputbox">
+                    <input type="text" name="" required="" id="fname" >
+                    <label for="fname" >First Name</label>
+                </div>
+                <div class="inputbox">
+                    <input type="text" name="" required="" id="lname"  >
+                    <label for="lname" >Last Name</label>
+                </div>
+                <div class="inputbox">
+                    <input type="number" name="" required="" id="phone" min="6000000000" max="9999999999">
+                    <label for="phone" >Phone No.</label>
+                </div>
+                <div class="form-check">
+                      <input class="form-check-input" type="radio" name="sex" id="rd1" value="male" checked>
+                      <label class="form-check-label" for="sex" style="color: #fff;">
+                        Male
+                      </label>
+                      <input class="form-check-input" type="radio" name="sex" id="rd2" value="female" style="margin-left: 40px;">
+                      <label class="form-check-label" for="sex" style="color: #fff; margin-left: 60px;">
+                        Female
+                      </label>
+                    </div>
+                <div class="inputbox">
+                    <input type="email" name="" required="" id="email">
+                    <label for="email" >Email</label>
+                </div>
+                <div class="inputbox">
+                    <input type="password" name="" required="" id="pass">
+                    <label >Password</label>
+                </div>
+            </form>
+            <input type="submit" name="" value="Signin" id="sub">
+    </div>
+    <div class="lowerbox">
+    	<a href="login.html">Already a Member !</a>
+    </div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript">
+                $("#sub").click(function(){
+               	var fname = $("#fname").val();
+                var lname = $("#lname").val();
+                var phone = $("#phone").val();
+                var rd1 =document.getElementById('rd1');
+                var rd2 =document.getElementById('rd2');
+                var sex = "";
+                if (rd1.checked ==true) { sex ="male";}
+                else{  sex = "female";}
+                var email = $("#email").val();
+                var pass = $("#pass").val();
+				var email = $("#email").val();
+				var phonecheck = document.getElementById("phone");
+                var emailchecker = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+                	if (!phonecheck.checkValidity() || (emailchecker.test(email) == false)) {
+					    alert("Check your phone number or email address");
+					  }
+					else{
+						if($.trim(email).length >0 & $.trim(pass).length >0 & $.trim(fname).length >0 & $.trim(lname).length >0) {
+		                    $.ajax({
+		                        type:"POST",  //Request type
+		                        url:"http://localhost/aayog/signup_api.php",
+		                        data:{fname:fname,lname:lname,phone:phone,sex:sex,email:email, pass:pass},
+		                        cache:false,
+		                        success:function(data) {
+		                              var datas = JSON.parse(data);
+		                                if (datas.status == 200) {
+		                                     window.location = 'home.html';
+		                                }
+		                                else {
+		                                   alert(datas.message);
+		                                }
+		                        }
+		                    })
+		                } 
+		                else {
+		                    alert('Input fields are empty');
+		                }
+					  	
+					}
+               })      
+        </script>
+    
+</body>
+</html>

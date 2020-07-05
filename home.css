@@ -1,0 +1,88 @@
+body
+{
+	margin: 0;
+	padding:0;
+	font-family: sans-serif;
+	background-image: url(bg7.png);
+	background-size: 100% 100vh;
+	background-repeat: no-repeat;
+}
+.box
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 400px;
+	padding:30px;
+	background: rgba(0,0,0,.3);
+	box-sizing: border-box;
+	box-shadow:  0 15px 25px rgba(0,0,0,.5);
+	border-radius: 10px;
+}
+.box h2
+{
+	margin: 0 0 30px;
+	padding: 0;
+	color: #fff;
+	text-align: center;
+}
+.box  .inputbox
+{
+	position: relative;
+}
+.box input
+{
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #fff;
+	outline: none;
+	background: transparent;
+	transition:  .5s ease-in;
+}
+.box label
+{
+	position: absolute;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	pointer-events: none;
+	transition: .5s;
+}
+.box .inputbox input:focus ~ label,
+.box .inputbox input:valid ~ label
+{
+	top: -18px;
+	left: 0;
+	color: #03a9f4;
+	font-size: 12px;
+}
+.box .inputbox input:focus ,
+.box .inputbox input:valid
+{
+	border: none;
+	border-bottom: 1px solid #03a9f4;
+}
+.btn
+{
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #fff;
+	background: #03a9f4;
+	margin-top: 30px;
+	margin-left: 120px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 14px;
+	padding: 10px;
+}
+.box .inputbox input:focus ~ .box
+{
+	padding: 10px;
+}
